@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace Bank
 {
@@ -12,8 +13,27 @@ namespace Bank
             List<Konto> Users = new List<Konto>();
             Users.Add(Person1);
             Users.Add(Person2);
-            string text = $@"Hello {Person2.getName()}, Balance: {Person2.getBalance()}";
+            string text = $@"Hello {Person2.getName()}, Balance: {Person2.getBalance()}
+1)Users
+2)Transfer";
             Console.WriteLine(text);
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    foreach (Konto user in Users)
+                    {
+                        Console.WriteLine(user.getName());
+                    };
+                    break;
+                case "2":
+                    Console.WriteLine("Choose options:");
+
+                    break;
+                default:
+                    Console.WriteLine(text);
+                    break;
+            }
         }
     }
 }
