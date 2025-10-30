@@ -12,10 +12,8 @@ namespace Bank
             List<Konto> Users = new List<Konto>();
             Users.Add(Person1);
             Users.Add(Person2);
-            foreach (Konto user in Users)
-            {
-                Console.WriteLine(user.getName());
-            }
+            string text = $@"Hello {Person2.getName()}, Balance: {Person2.getBalance()}";
+            Console.WriteLine(text);
         }
     }
 }
