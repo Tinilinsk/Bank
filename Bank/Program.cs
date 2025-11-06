@@ -7,13 +7,13 @@ namespace Bank
     {
         public static void Main(string[] args)
         {
-            Konto Person1 = new Konto("12344321", "Artsiom", 1000);
-            Konto Person2 = new Konto("12387983", "Igor", 100000);
+            BankAccount Person1 = new BankAccount("12344321", "Artsiom", 1000);
+            BankAccount Person2 = new BankAccount("12387983", "Igor", 100000);
 
-            List<Konto> Users = new List<Konto>();
+            List<BankAccount> Users = new List<BankAccount>();
             Users.Add(Person1);
             Users.Add(Person2);
-            string text = $@"Hello {Person2.getName()}, Balance: {Person2.getBalance()}";
+            string text = $@"Hello {Person2._name}, Balance: {Person2._balance}";
             Console.WriteLine(text);
             do
             {
@@ -21,37 +21,58 @@ namespace Bank
                 Console.WriteLine("1) View all users");
                 Console.WriteLine("2) Transfer money");
                 Console.WriteLine("3) View my account");
+                Console.WriteLine("4) Deposit");
+                Console.WriteLine("5) Withdraw");
                 string input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
-                        foreach (Konto user in Users)
+                        foreach (BankAccount user in Users)
                         {
-                            Console.WriteLine(user.getName());
+                            Console.WriteLine(user._name);
                         };
                         break;
                     case "2":
                         Console.WriteLine("Choose options:");
-                        Console.WriteLine($"1) Transfer to {Person1.getName()}");
+                        Console.WriteLine($"1) Transfer to {Person1._name}");
                         input = Console.ReadLine();
                         if (input == "1")
                         {
                             Console.WriteLine("Enter amount:");
                             int amount = Convert.ToInt32(Console.ReadLine());
-                            if (amount > Person2.getBalance())
+                            if (amount > Person2._balance)
                             {
                                 Console.WriteLine("Not enough balance");
                             }
                             else
                             {
-                                Person2.setBalance(Person2.getBalance() - amount);
-                                Person1.setBalance(Person1.getBalance() + amount);
-                                Console.WriteLine($"Transfered {amount} to {Person1.getName()}");
+                                Person2.Withdraw(amount);
+                                Person1.Deposit(amount);
+                                Console.WriteLine($"Transfered {amount} to {Person1._name}");
                             }
                         }
                         break;
                     case "3":
-                        Console.WriteLine($"Name: {Person2.getName()}, Balance: {Person2.getBalance()}, ID:{Person2.getId()}");
+                        Person2.GetAccountInfo();
+                        break;
+                    case "4":
+                        Console.WriteLine("Enter amount to deposit:");
+                        int depositAmount = Convert.ToInt32(Console.ReadLine());
+                        Person2.Deposit(depositAmount);
+                        Console.WriteLine($"Deposited {depositAmount}");
+                        break;
+                    case "5":
+                        Console.WriteLine("Enter amount to withdraw:");
+                        int withdrawAmount = Convert.ToInt32(Console.ReadLine());
+                        if (withdrawAmount > Person2._balance)
+                        {
+                            Console.WriteLine("Not enough balance");
+                        }
+                        else
+                        {
+                            Person2.Withdraw(withdrawAmount);
+                            Console.WriteLine($"Withdrew {withdrawAmount}");
+                        }
                         break;
                     default:
                         Console.WriteLine(text);
