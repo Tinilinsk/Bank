@@ -33,5 +33,9 @@ namespace Bank
         {
             _balance -= amount;
         }
+        public void Transfer(BankAccount account, int amount) {
+            account._balance += amount;
+            _balance -= amount;
+        }
     }
 }

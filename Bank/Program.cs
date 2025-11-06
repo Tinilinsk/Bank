@@ -23,6 +23,7 @@ namespace Bank
                 Console.WriteLine("3) View my account");
                 Console.WriteLine("4) Deposit");
                 Console.WriteLine("5) Withdraw");
+                Console.WriteLine("6) ");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -46,6 +47,7 @@ namespace Bank
                             }
                             else
                             {
+                                Person1.Transfer(Person1, amount); 
                                 Person2.Withdraw(amount);
                                 Person1.Deposit(amount);
                                 Console.WriteLine($"Transfered {amount} to {Person1._name}");
