@@ -52,8 +52,8 @@ namespace Bank
         /// <summary>
         /// Transfers amount from this account to another account
         /// </summary>
-        /// <param name="account"></param>
-        /// <param name="amount"></param>
+        /// <param name="account">Account to which you will transfer</param>
+        /// <param name="amount">How much transfer from account</param>
         public void Transfer(BankAccount account, int amount) {
             account._balance += amount;
             _balance -= amount;
