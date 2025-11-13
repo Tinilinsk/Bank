@@ -11,6 +11,5 @@ namespace Bank
         void Deposit(int amount);
         void Withdraw(int amount);
         void GetAccountInfo();
-
+        void SavingAccount(decimal interestRate, int months);
     }
-}

@@ -23,7 +23,7 @@ namespace Bank
                 Console.WriteLine("3) View my account");
                 Console.WriteLine("4) Deposit");
                 Console.WriteLine("5) Withdraw");
-                Console.WriteLine("6) ");
+                Console.WriteLine("6) Saving account");
                 string input = Console.ReadLine();
                 switch (input)
                 {

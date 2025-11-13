@@ -58,5 +58,10 @@ namespace Bank
             account._balance += amount;
             _balance -= amount;
         }
+
+        public void SavingAccount(decimal interestRate, int months)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
