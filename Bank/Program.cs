@@ -7,8 +7,8 @@ namespace Bank
     {
         public static void Main(string[] args)
         {
-            BankAccount Person1 = new BankAccount("12344321", "Artsiom", 1000);
-            BankAccount Person2 = new BankAccount("12387983", "Igor", 100000);
+            BankAccount Person1 = new("12344321", "Artsiom", 1000);
+            BankAccount Person2 = new("12387983", "Igor", 100000);
 
             List<BankAccount> Users = new List<BankAccount>();
             Users.Add(Person1);
